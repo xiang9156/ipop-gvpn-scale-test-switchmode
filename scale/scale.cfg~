@@ -1,0 +1,5 @@
+NODE      xiangvpn@pc-c220m4-r02-17.wisc.cloudlab.us
+NODE      xiangvpn@pc-c220m4-r02-03.wisc.cloudlab.us
+SERVER    xiangvpn@pc-c220m4-r02-17.wisc.cloudlab.us
+FORWARDER xiangvpn@pc-c220m4-r02-17.wisc.cloudlab.us
+SIZE      20
