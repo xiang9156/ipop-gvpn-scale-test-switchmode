@@ -1,4 +1,4 @@
-# Scale Test for the IPOP Structured P2P GroupVPN Controller
+# Scale Test for the switchmode of IPOP Structured P2P GroupVPN Controller
 
 ### Description
 
