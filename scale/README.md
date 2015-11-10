@@ -1,4 +1,4 @@
-#IPOP Network Scalability Test
+#IPOP Network Scalability Test of switchmode
 
 ##Description
 This tool was created to assist in scalable IPOP networks. This tool is designed as a hierarchical set of bash scripts and operations are distributed/parallelized where possible, utilizing a variable number of physical/virtual nodes (CloudLab, Amazon EC2, etc.) and a variable number of LXC containers to achieve a scalable testbed. The produces are fully automated for productivity (see _Usage_ below).
@@ -13,27 +13,26 @@ scale.cfg                |Configuration file.
 visualizer.py            |Parse debug messages from IPOP-nodes for visualizing IPOP network.
 node/node.bash           |Intermediate script used on a node. Instructed by the local machine; instructs LXC containers (IPOP-nodes).
 node/dbg_forwarder.py    |This program is a service that converts debug UDP datagrams from the LXC containers into a single TCP session. This is a solution for testers whose local computer does not have a public IPv4 address.
-node/ipop/ipop.bash      |End script used on a LXC container. Instructed by the node; configures/operates on IPOP sources.
-node/ipop/<ipop sources\>|IPOP sources.
 
 ##Usage
-Command        |Description
----------------|------------
-accept         |Manually add node connections to the list of known hosts (SSH).
-install        |Instruct nodes to receive contents of directory _node_. Nodes install lxc, ejabberd, and turnserver packages. Nodes prepare default LXC containers, one node establishes an ejabberd (XMPP/STUN) service and a turnserver (TURN) service.
-init [size\]   |Instruct nodes to initialize platform. Nodes create distributed total of _size_ LXC containers, one node creates an ejabberd and turnserver account for all IPOP-nodes and define all links. NOTE: parameter _size_ is obtained from _scale.cfg_ if not provided.
-exit           |Instruct nodes to clear all LXC containers, one node removes all ejabberd and turnserver accounts and undefines all links.
-source         |Instruct nodes to receive contents of directory _node_. Nodes then copy sources to the LXC containers.
-config <args\> |Instruct nodes to create configuration files for each IPOP-node using arguments _args_.
-forward <port\>|Instruct one node to run a forwarding program using port _port_.
-run [list/all] |Instruct nodes to run the _list_ of, or _all_, IPOP-nodes.
-mem <vnode_id> |Get the memory utilization information of tincan in the specific node.
-iperf <args\>  |Test the network throught between two nodes through virtual link or direct link. To use this command you should first type "iperf install all" to install iperf in all nodes.
-ping <args\>   |Test the network delay between two nodes through virtual link or direct link.
-kill [list/all]|Instruct nodes to run the _list_ of, or _all_, IPOP-nodes.
-quit           |Quit this program.
+Command         |Description
+----------------|------------
+accept          |Manually add node connections to the list of known hosts (SSH).
+install         |Instruct nodes to receive contents of directory _node_. Nodes install lxc, ejabberd, and turnserver packages. Nodes prepare default LXC containers, one node establishes an ejabberd (XMPP/STUN) service and a turnserver (TURN) service.
+init [size\]    |Instruct nodes to initialize platform. Nodes create distributed total of _size_ LXC containers, one node creates an ejabberd and turnserver account for all IPOP-nodes and define all links. NOTE: parameter _size_ is obtained from _scale.cfg_ if not provided.
+exit            |Instruct nodes to clear all LXC containers, one node removes all ejabberd and turnserver accounts and undefines all links.
+config <args\>  |Instruct nodes to create configuration files for each IPOP-node using arguments _args_.
+run [list/all]  |Instruct nodes to run ipop-tincan and controller on _list_ of, or _all_, physical nodes.
+kill [list/all] |Instruct nodes to kill ipop-tincan and controller on _list_ of, or _all_, physical nodes.
+start [list/all]|Instruct nodes to start _list_ of, or _all_, lxcs.
+stop [list/all] |Instruct nodes to stop _list_ of, or _all_, lxcs.
+forward <port\> |Instruct one node to run a forwarding program using port _port_.
+mem <vnode_id>  |Get the memory utilization information of tincan in the specific node.
+iperf <args\>   |Test the network throughput between two nodes through virtual link or direct link. Enter "iperf help" for detailed usage in scale.bash.
+ping <args\>    |Test the network delay between two nodes through virtual link or direct link. Enter "ping help" for detailed usage in scale.bash.
+quit            |Quit this program.
 
-NOTE: "Nodes" are defined as the physical/virtual computers in this testbed. "IPOP-nodes" are instances of the IPOP software running in a LXC container (one IPOP-node per LXC container).
+NOTE: "Nodes" are defined as the physical/virtual computers in this testbed.
 
 ##Example
 1. Go to CloudLab.us
@@ -57,14 +56,13 @@ _accept_
 _install_
 _init_
 6. Configuring and IPOP network simulation
-The platform is ready, enter the following commands as necessary to update sources, create configuration files, or run or kill IPOP-nodes.
-_source_
+The platform is ready, enter the following commands as necessary to create configuration files, run or kill IPOP-tincan and controller, and start or stop lxc.
 _config <args\>_
 _run [list/all]_
-_kill [list/all]_
+_start [list/all]_
 7. Testing the IPOP network
 Enter the following commands to get the memory utilization of tincan on each node, test the network throughput and delay.
-_mem_
+_mem <physical node_id>_
 _ping <args\>_
 _iperf <args\>_
 8. Clearing the platform
