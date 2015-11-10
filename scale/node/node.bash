@@ -311,7 +311,7 @@ case $1 in
 		    vnode=$3
 		    ip=$4
 	 	    type=$5
-	 	    if [ $type == 'u']; then
+	 	    if [ $type == 'u' ]; then
   		  	sudo lxc-attach -n "node$vnode" -- iperf -u -c $ip
 		    else
    			sudo lxc-attach -n "node$vnode" -- iperf -c $ip
@@ -321,7 +321,7 @@ case $1 in
                 ("s")
 		    vnode=$3
 		    type=$4
-		    if [ $type == 'u']; then
+		    if [ $type == 'u' ]; then
   		  	sudo lxc-attach -n "node$vnode" -- iperf -u -s -D
 		    else
    			sudo lxc-attach -n "node$vnode" -- iperf -s -D
@@ -339,7 +339,12 @@ case $1 in
 	vnode=$2
 	ip=$3
 	count=$4
-        sudo lxc-attach -n "node$vnode" -- ping $ip -c $count 
+	if [ -z $count ]; then
+       		sudo lxc-attach -n "node$vnode" -- ping $ip
+	else
+        	sudo lxc-attach -n "node$vnode" -- ping $ip -c $count 
+	fi
+        
 	;;
     ("getip")
 	vnode=$2

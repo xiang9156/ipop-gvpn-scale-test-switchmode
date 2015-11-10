@@ -203,7 +203,7 @@ while true; do
 	    case ${args[0]} in
                 ("help")
 		    echo "Usage:"
-		    echo "ping <vnode1_id> <vnode2_id> <count>"
+		    echo "ping <vnode1_id> <vnode2_id> <count>(optional)"
                     ;;
                 (*)
 		    vnode1_id=${args[0]}
