@@ -85,12 +85,17 @@ Example: ```config 2 3 2 8 60 30 180 60 128``` defines the BaseTopologyManager t
 
 #### IPOP TEST:
 In scale.bash:
+
 ping:
+
 ```ping <vnode1_id> <vnode2_id> <count>``` for ping from vnode1 to vnode2
 
 iperf:
+
 ```iperf s <vnode_id> <t/u>``` for running a iperf server with tcp or udp
+
 ```iperf c <vnode1_id> <vnode2_id> <t/u>``` for testing throughput between vnode1(client) and vnode2(server) through tcp or udp
 
 mem:
+
 ```mem <physical node_id>/<all>``` for monitoring the memory utilization of tincan on specific physical node or all physical nodes
