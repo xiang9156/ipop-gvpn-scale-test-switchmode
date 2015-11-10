@@ -28,8 +28,8 @@ start [list/all]|Instruct nodes to start _list_ of, or _all_, lxcs.
 stop [list/all] |Instruct nodes to stop _list_ of, or _all_, lxcs.
 forward <port\> |Instruct one node to run a forwarding program using port _port_.
 mem <vnode_id>  |Get the memory utilization information of tincan in the specific node.
-iperf <args\>   |Test the network throughput between two nodes through virtual link or direct link. Enter "iperf help" for detailed usage in scale.bash.
-ping <args\>    |Test the network delay between two nodes through virtual link or direct link. Enter "ping help" for detailed usage in scale.bash.
+iperf <args\>   |Test the network throughput between two lxc. Enter "iperf help" for detailed usage in scale.bash.
+ping <args\>    |Test the network delay between two lxc. Enter "ping help" for detailed usage in scale.bash.
 quit            |Quit this program.
 
 NOTE: "Nodes" are defined as the physical/virtual computers in this testbed.
