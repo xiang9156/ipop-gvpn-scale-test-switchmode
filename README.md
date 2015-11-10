@@ -84,7 +84,7 @@ Example: ```config 2 3 2 8 60 30 180 60 128``` defines the BaseTopologyManager t
 
 To view the IPOP network using the available visualizer, enter ```forward <port>``` within the bash script.
 
-#### Using the visualizer:
+#### IPOP TEST:
 
 Note: the visualizer depends on TKinter, use ```pacman -S tk``` (in Archlinux) or ```apt-get install python3-tk``` (in Ubuntu/Debian).
 
