@@ -66,9 +66,9 @@ Enter the following commands (see the ```README.md``` in ```scale/``` for inform
 accept    # enter 'yes' if prompted
 install
 init
-source
 config <num_successors> <num_chords> <num_on_demand> <num_inbound> <ttl_link_initial> <ttl_link_pulse> <ttl_chord> <ttl_on_demand> <threshold_on_demand>
 run all
+start all
 ```
 Example: ```config 2 3 2 8 60 30 180 60 128``` defines the BaseTopologyManager to support:
 
