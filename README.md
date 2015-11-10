@@ -82,16 +82,13 @@ Example: ```config 2 3 2 8 60 30 180 60 128``` defines the BaseTopologyManager t
 * on-demand links have a time-to-live of 60 seconds before they undergoes a threshold test
 * on-demand links have a threshold of 128 transmitted bytes per second before they are trimmed
 
-To view the IPOP network using the available visualizer, enter ```forward <port>``` within the bash script.
 
 #### IPOP TEST:
-
-Note: the visualizer depends on TKinter, use ```pacman -S tk``` (in Archlinux) or ```apt-get install python3-tk``` (in Ubuntu/Debian).
-
 In scale.bash:
-
-```forward <forwarder port>```
-
-In a separate terminal:
-
-```python3 scale/visualizer.py tcp <forwarder ipv4> <forwarder port> <SIZE> <GUI window size (length)>```
+ping:
+```ping <vnode1_id> <vnode2_id> <count>``` for ping from vnode1 to vnode2
+iperf:
+```iperf s <vnode_id> <t/u>``` for running a iperf server with tcp or udp
+```iperf c <vnode1_id> <vnode2_id> <t/u>``` for testing throughput between vnode1(client) and vnode2(server) through tcp or udp
+mem:
+```mem <physical node_id>/<all>``` for monitoring the memory utilization of tincan on specific physical node or all physical nodes
