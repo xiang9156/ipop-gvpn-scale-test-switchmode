@@ -17,12 +17,12 @@ This project is composed of scripts for automating the preparation and simulatio
 git clone https://github.com/ipop-project/controllers.git
 cd controllers/; git checkout devel; cd -
 
-git clone https://github.com/ssabogal/ipop-gvpn-scale-test.git
-cd ipop-gvpn-scale-test/
+git clone https://github.com/xiang9156/ipop-gvpn-scale-test-switchmode.git
+cd ipop-gvpn-scale-test-switchmode/
 mv ../controllers/controller scale/node/ipop/
 ```
 
-Note: A precompiled binary for **IPOP-Tincan** is available in ```scale/node/ipop```. The latest IPOP-Tincan can be obtained by downloading the latest archive from the releases or by building from source [2].
+Note: A precompiled binary for **IPOP-Tincan** is available in ```scale/node```. The latest IPOP-Tincan can be obtained by downloading the latest archive from the releases or by building from source [2].
 
 #### Preparing physical nodes (using CloudLab)
 
