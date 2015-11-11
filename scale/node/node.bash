@@ -302,7 +302,7 @@ case $1 in
         done
         ;;
     ("mem")
-	tincan_pid=$(ps aux | grep tincan | grep root | awk '{print$2}' | head -n 1)
+	tincan_pid=$(ps aux | grep -v grep | grep tincan | grep -v sudo | awk '{print $2}' | head -n 1)
 	top -n 1 -b -p $tincan_pid
         ;;
     ("iperf")
