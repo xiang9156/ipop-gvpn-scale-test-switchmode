@@ -275,16 +275,16 @@ case $1 in
         python3 $FORWARDER_PROGRAM $dbg_visual_ipv4 $dbg_visual_port $forward_port
         ;;
     ("run")
+	# start the tincan and controller
         sudo chmod +x $IPOP_TINCAN
 	sudo sh -c './ipop-tincan-x86_64 1> out.log 2> err.log &'
         python -m $IPOP_CONTROLLER -c $GVPN_CONFIG &> log.txt &
 	sudo brctl addif lxcbr0 ipop
         ;;
     ("kill")
-        tincan_pid=$(ps aux | grep tincan | grep root | awk '{print$2}' | head -n 1)
-	sudo kill -9 $tincan_pid
-	controller_pid=$(ps aux | grep controller | grep Controller | awk '{print$2}' | head -n 1)
-	kill -9 $controller_pid
+	# kill the tincan and controller
+	ps aux | grep -v grep | grep $IPOP_TINCAN | awk '{print $2}' | xargs sudo kill -9
+	ps aux | grep -v grep | grep $IPOP_CONTROLLER | awk '{print $2}' | xargs sudo kill -9
         ;;
     ("start")
         vnode_list=($2)	
