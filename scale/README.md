@@ -19,20 +19,20 @@ Command         |Description
 ----------------|------------
 accept          |Manually add node connections to the list of known hosts (SSH).
 install         |Instruct nodes to receive contents of directory _node_. Nodes install lxc, ejabberd, and turnserver packages. Nodes prepare default LXC containers, one node establishes an ejabberd (XMPP/STUN) service and a turnserver (TURN) service.
-init [size\]    |Instruct nodes to initialize platform. Nodes create distributed total of _size_ LXC containers, one node creates an ejabberd and turnserver account for all IPOP-nodes and define all links. NOTE: parameter _size_ is obtained from _scale.cfg_ if not provided.
+init [size\]    |Instruct nodes to initialize platform. Nodes create distributed total of _size_ LXC containers, one node creates an ejabberd and turnserver account for all IPOP-nodes and define all links. Changing lxcbr ip address. NOTE: parameter _size_ is obtained from _scale.cfg_ if not provided.
 exit            |Instruct nodes to clear all LXC containers, one node removes all ejabberd and turnserver accounts and undefines all links.
-config <args\>  |Instruct nodes to create configuration files for each IPOP-node using arguments _args_.
-run [list/all]  |Instruct nodes to run ipop-tincan and controller on _list_ of, or _all_, physical nodes.
-kill [list/all] |Instruct nodes to kill ipop-tincan and controller on _list_ of, or _all_, physical nodes.
-start [list/all]|Instruct nodes to start _list_ of, or _all_, lxcs.
-stop [list/all] |Instruct nodes to stop _list_ of, or _all_, lxcs.
+config <args\>  |Instruct IPOP-nodes to create configuration files.
+run [list/all]  |Instruct IPOP-nodes to run ipop-tincan and controller.
+kill [list/all] |Instruct IPOP-nodes to kill ipop-tincan and controller.
+start [list/all]|Instruct IPOP-nodes to start _list_ of, or _all_, lxcs.
+stop [list/all] |Instruct IPOP-nodes to stop _list_ of, or _all_, lxcs.
 forward <port\> |Instruct one node to run a forwarding program using port _port_.
-mem <vnode_id>  |Get the memory utilization information of tincan in the specific node.
+mem <vnode_id>  |Get the memory utilization information of tincan in the specific IPOP-node.
 iperf <args\>   |Test the network throughput between two lxc. Enter "iperf help" for detailed usage in scale.bash.
 ping <args\>    |Test the network delay between two lxc. Enter "ping help" for detailed usage in scale.bash.
 quit            |Quit this program.
 
-NOTE: "Nodes" are defined as the physical/virtual computers in this testbed.
+NOTE: "IPOP-nodes" are defined as the physical/virtual computers in this testbed.
 
 ##Example
 1. Go to CloudLab.us
