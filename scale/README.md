@@ -22,7 +22,7 @@ install         |Instruct nodes to receive contents of directory _node_. Nodes i
 init [size\]    |Instruct nodes to initialize platform. Nodes create distributed total of _size_ LXC containers, one node creates an ejabberd and turnserver account for all IPOP-nodes and define all links. Changing lxcbr ip address. NOTE: parameter _size_ is obtained from _scale.cfg_ if not provided.
 exit            |Instruct nodes to clear all LXC containers, one node removes all ejabberd and turnserver accounts and undefines all links.
 config <args\>  |Instruct IPOP-nodes to create configuration files.
-run [list/all]  |Instruct IPOP-nodes to run ipop-tincan and controller.
+run [list/all]  |Instruct IPOP-nodes to run ipop-tincan and controller. Attach ipop tap device to lxcbr0.
 kill [list/all] |Instruct IPOP-nodes to kill ipop-tincan and controller.
 start [list/all]|Instruct IPOP-nodes to start _list_ of, or _all_, lxcs.
 stop [list/all] |Instruct IPOP-nodes to stop _list_ of, or _all_, lxcs.
