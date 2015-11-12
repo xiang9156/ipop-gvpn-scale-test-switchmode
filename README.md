@@ -19,7 +19,7 @@ cd controllers/; git checkout devel; cd -
 
 git clone https://github.com/xiang9156/ipop-gvpn-scale-test-switchmode.git
 cd ipop-gvpn-scale-test-switchmode/
-mv ../controllers/controller scale/node/ipop/
+mv ../controllers/controller scale/node/
 ```
 
 Note: A precompiled binary for **IPOP-Tincan** is available in ```scale/node```. The latest IPOP-Tincan can be obtained by downloading the latest archive from the releases or by building from source [2].
